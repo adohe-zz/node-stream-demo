@@ -1,4 +1,5 @@
 node-stream-demo
 ================
 
-Node.js Stream Demo
+    This demo covers the basics of how to write node.js programs with streams, also give a brief
+introduction to some popular modules with streams. 
