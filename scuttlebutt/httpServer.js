@@ -1,5 +1,6 @@
 var http = require('http');
 var Model = require('scuttlebutt/model');
+var request = require('request');
 
 var am = new Model;
 
@@ -21,4 +22,8 @@ var server = http.createServer(function(req, res) {
 });
 
 server.listen(Number(process.argv[2]));
-console.log('server start at port: 8080');
+
+process.argv.slice(3).map(Number).forEach(function (port) {
+    var r = request.put('http://localhost:' + port + '/_replicate');
+    r.pipe(am.createStream()).pipe(r);
+});
