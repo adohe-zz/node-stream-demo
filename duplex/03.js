@@ -6,6 +6,7 @@ var rs = fs.createReadStream('words.txt');
 var ws = fs.createWriteStream('ee.txt');
 
 var duplexer = require('duplexer');
+//s is a duplex stream
 var s = duplexer(ps.stdin, ps.stdout);
 
 rs.on('data', function(buf) {
